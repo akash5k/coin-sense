@@ -2,26 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base{
+  body{    
+    @apply relative;
   }
-}
+} 
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer utilities {
+  .red_btn {
+    @apply rounded-full border border-red-500 bg-red-500 py-1.5 px-5 text-sm text-white transition-all hover:bg-white hover:text-red-500;
+  }
+  .green_btn {
+    @apply rounded-full border border-green-500 bg-green-500 py-1.5 px-5 text-sm text-white transition-all hover:bg-white hover:text-red-500;
+  }
+
+  .expence-card {
+    @apply hover:scale-110 bg-blend-soft-light;
+  }
 }
