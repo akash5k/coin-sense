@@ -2,21 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-  body{    
+@layer base {
+  body {
     @apply relative;
   }
-} 
+
+  .hover {
+    @apply hover:scale-110;
+  }
+
+  input {
+    @apply px-4 py-2 bg-slate-300 rounded-xl;
+  }
+}
 
 @layer utilities {
   .red_btn {
-    @apply rounded-full border border-red-500 bg-red-500 py-1.5 px-5 text-sm text-white transition-all hover:bg-white hover:text-red-500;
+    @apply self-start rounded-full border border-red-500 bg-red-500 py-1.5 px-5 text-sm text-white transition-all hover:bg-white hover:text-red-500;
   }
   .green_btn {
-    @apply rounded-full border border-green-500 bg-green-500 py-1.5 px-5 text-sm text-white transition-all hover:bg-white hover:text-red-500;
+    @apply self-start rounded-full border border-green-500 bg-green-500 py-1.5 px-5 text-sm text-white transition-all hover:bg-white hover:text-red-500;
   }
 
   .expence-card {
     @apply hover:scale-110 bg-blend-soft-light;
+  }
+
+  .input-group {
+    @apply flex flex-col gap-4;
   }
 }

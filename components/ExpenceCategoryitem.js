@@ -1,4 +1,4 @@
-import { currencyformatter } from "@/lib/utils";
+import { currencyFormatter } from "@/lib/utils";
 
 function ExpenceCategoryItem({ color, title, total }) {
   return (
@@ -11,7 +11,7 @@ function ExpenceCategoryItem({ color, title, total }) {
         />
         <h4 className="capitalize">{title}</h4>
       </div>
-      <p>{currencyformatter(total)}</p>
+      <p>{currencyFormatter(total)}</p>
     </div>
     </button>
   );
