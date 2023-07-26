@@ -1,12 +1,13 @@
 import { useRef, useEffect, useContext } from "react";
-import { currencyFormatter } from "@/lib/utils";
+import { currencyFormatter } from "/lib/utils";
 
-import { financeContext } from "@/lib/store/finance-context";
+import { financeContext } from "/lib/store/finance-context";
+import { formatDate } from "../../lib/utils";
 
 // Icons
 import { FaRegTrashAlt } from "react-icons/fa";
 
-import Modal from "@/components/Modal";
+import Modal from "/components/Modal";
 
 function AddIncomeModal({ show, onClose }) {
   const amountRef = useRef();
@@ -50,8 +51,8 @@ function AddIncomeModal({ show, onClose }) {
             type="number"
             name="amount"
             ref={amountRef}
-            min={0.01}
-            step={0.01}
+            // min={0.01}
+            // step={0.01}
             placeholder="Enter income amount"
             required
           />
@@ -75,27 +76,31 @@ function AddIncomeModal({ show, onClose }) {
 
       <div className="flex flex-col gap-4 mt-6">
         <h3 className="text-2xl font-bold">Income History</h3>
-
-        {income.map((i) => {
-          return (
-            <div className="flex justify-between item-center" key={i.id}>
-              <div>
-                <p className="font-semibold">{i.description}</p>
-                <small className="text-xs">{i.createdAt.toISOString()}</small>
+        {/* div to wrap inside scroll if too long */}
+        <div className="scrollable-div max-h-[20vh] overflow-y-auto">
+          {income.map((i) => {
+            const formattedDate = formatDate(new Date(i.createdAt));
+            return (
+              <div className="flex justify-between item-center" key={i.id}>
+                <div>
+                  <p className="font-semibold">{i.description}</p>
+                  <small className="text-xs">{formattedDate}</small>
+                  {/* <small className="text-xs">{i.createdAt.toISOString()}</small> */}
+                </div>
+                <p className="flex items-center gap-2">
+                  {currencyFormatter(i.amount)}
+                  <button
+                    onClick={() => {
+                      deleteIncomeEntryHandler(i.id);
+                    }}
+                  >
+                    <FaRegTrashAlt />
+                  </button>
+                </p>
               </div>
-              <p className="flex items-center gap-2">
-                {currencyFormatter(i.amount)}
-                <button
-                  onClick={() => {
-                    deleteIncomeEntryHandler(i.id);
-                  }}
-                >
-                  <FaRegTrashAlt />
-                </button>
-              </p>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </Modal>
   );

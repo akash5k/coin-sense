@@ -1,17 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+// import { financeContext } from "./lib/store/finance-context";
+import { financeContext } from "../lib/store/finance-context";
 
-import { currencyFormatter } from "@/lib/utils";
-import ExpenceCategoryItem from "@/components/ExpenceCategoryitem";
+import { currencyFormatter } from "../lib/utils";
+import ExpenseCategoryItem from "../components/ExpenseCategoryItem";
 
-import AddIncomeModal from "@/components/modals/AddIncomeModal";
+import AddIncomeModal from "../components/modals/AddIncomeModal";
+import AddExpensesModal from "../components/modals/AddExpensesModal";
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
 //firebase
-import { db } from "@/lib/firebase";
+import { db } from "../lib/firebase";
 import {
   collection,
   doc,
@@ -25,58 +28,54 @@ import { FaRegTrashAlt } from "react-icons/fa";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const DUMMY_DATA = [
-  {
-    id: 1,
-    title: "Entertainment",
-    color: "#000",
-    total: 500,
-  },
-  {
-    id: 2,
-    title: "Gass",
-    color: "#009",
-    total: 1000,
-  },
-  {
-    id: 3,
-    title: "Movies",
-    color: "#000",
-    total: 300,
-  },
-  {
-    id: 4,
-    title: "Fuel",
-    color: "#000",
-    total: 1000,
-  },
-];
-
 export default function Home() {
 
-  
   const [showAddIncomemodal, setShowAddIncomeModal] = useState(false);
+  const [showAddExpenseModal, setShowAddExpenseModal] = useState(false);
+
+  const [balance, setBalance] = useState(0);
+
+  const { expenses, income } = useContext(financeContext);
+
+  useEffect(() => {
+    const newbalance =
+      income.reduce((total, i) => {
+        return total + i.amount;
+      }, 0) -
+      expenses.reduce((total, e) => {
+        return total + e.total;
+      }, 0);
+
+    setBalance(newbalance);
+  }, [expenses, income]);
 
   return (
     <>
+      
       <AddIncomeModal
         show={showAddIncomemodal}
-        onClose={setShowAddIncomeModal}       
+        onClose={setShowAddIncomeModal}
       />
+      
+      <AddExpensesModal
+        show={showAddExpenseModal}
+        onClose={setShowAddExpenseModal}
+      />
+
       <main className="container max-w-2xl px-6 mx-auto">
         <section>
           <small className="text-gray-400 text-md">My Balance</small>
-          <h2 className="text-4xl font-bold">{currencyFormatter(2000000)}</h2>
+          <h2 className="text-4xl font-bold">{currencyFormatter(balance)}</h2>
         </section>
 
         <section className="pt-4">
           <button
             onClick={() => {
-              // setModalisopen(true);
+              setShowAddExpenseModal(true);
             }}
             className="red_btn"
           >
-            + Expence
+            + Expense
           </button>
 
           <button
@@ -89,17 +88,15 @@ export default function Home() {
           </button>
         </section>
 
-        {/*Expences*/}
+        {/*expenses*/}
         <section className="py-6">
-          <h3 className="text-2xl">My Expences</h3>
+          <h3 className="text-2xl">My expenses</h3>
           <div className="flex flex-col gap-4 mt-6">
-            {DUMMY_DATA.map((expence) => {
+            {expenses.map((expense) => {
               return (
-                <ExpenceCategoryItem
-                  key={expence.id}
-                  color={expence.color}
-                  title={expence.title}
-                  total={expence.total}
+                <ExpenseCategoryItem
+                  key={expense.id}
+                  expense={expense}
                 />
               );
             })}
@@ -112,12 +109,12 @@ export default function Home() {
           <div className="w-1/2 mx-auto">
             <Doughnut
               data={{
-                labels: DUMMY_DATA.map((expense) => expense.title),
+                labels: expenses.map((expense) => expense.title),
                 datasets: [
                   {
                     label: "Expenses",
-                    data: DUMMY_DATA.map((expence) => expence.total),
-                    backgroundColor: DUMMY_DATA.map((expence) => expence.color),
+                    data: expenses.map((expense) => expense.total),
+                    backgroundColor: expenses.map((expense) => expense.color),
                     borderColor: ["#fff"],
                     borderWidth: 5,
                   },

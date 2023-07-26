@@ -2,8 +2,9 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 
-import Nav from "@/components/Navigation";
-import FinanceContextProvider from "@/lib/store/finance-context";
+import Nav from "../components/Navigation";
+
+import FinanceContextProvider from "../lib/store/finance-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
