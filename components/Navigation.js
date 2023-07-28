@@ -1,31 +1,44 @@
 import React from "react";
 import { ImStatsBars } from "react-icons/im";
+import { useContext } from "react";
+
+import { authContext } from "../lib/store/auth-context";
 
 function Nav() {
+
+const {user,loading,logout} = useContext(authContext)
+
   return (
     <header className="container max-w-2xl px-6 py-6 mx-auto">
       <div className="flex justify-between ">
         {/* User Info*/}
-        <div className="flex items-center gap-2">
+        {user && !loading && (
+          <div className="flex items-center gap-2">
           <div className="w-[40px] h-[40px] rounded-full overflow-hidden">
             <img
               className="object-cover w-full h-full"
-              src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg"
-              alt="P imange"
+              src={user.photoURL}
+              alt={user.displayName}
+              referrerPolicy="no-referrer"
             />
           </div>
-          <small className="text-xl">Hi,Peter</small>
+          <small className="text-xl">Hi,{user.displayName}</small>
         </div>
+        )}
+        
 
-        {/* User Info*/}
-        <nav className="flex gap-4 items-center">
+        {/* right side*/}
+        {user && !loading &&(
+          <nav className="flex gap-4 items-center">
           <div>
             <ImStatsBars className="text-2xl" />
           </div>
           <div>
-            <button className="red_btn">Sign Out</button>
+            <button onClick={logout} className="red_btn">Sign Out</button>
           </div>
         </nav>
+        )}
+        
       </div>
     </header>
   );

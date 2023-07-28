@@ -3,12 +3,15 @@
 import { useState, useContext, useEffect } from "react";
 // import { financeContext } from "./lib/store/finance-context";
 import { financeContext } from "../lib/store/finance-context";
+import { authContext } from "../lib/store/auth-context";
 
 import { currencyFormatter } from "../lib/utils";
 import ExpenseCategoryItem from "../components/ExpenseCategoryItem";
 
 import AddIncomeModal from "../components/modals/AddIncomeModal";
 import AddExpensesModal from "../components/modals/AddExpensesModal";
+
+import SignIn from "../components/SignIn"
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
@@ -36,6 +39,7 @@ export default function Home() {
   const [balance, setBalance] = useState(0);
 
   const { expenses, income } = useContext(financeContext);
+  const {user} = useContext(authContext);
 
   useEffect(() => {
     const newbalance =
@@ -48,6 +52,10 @@ export default function Home() {
 
     setBalance(newbalance);
   }, [expenses, income]);
+
+  if(!user){
+    return <SignIn />;
+  }
 
   return (
     <>
