@@ -12,10 +12,10 @@ import AuthContextProvider from "../lib/store/auth-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "CoinSense",
-  description: "A way to track your expenses",
-};
+// export const metadata = {
+//   title: "CoinSense",
+//   description: "A way to track your expenses",
+// };
 
 export default function RootLayout({ children }) {
   return (
