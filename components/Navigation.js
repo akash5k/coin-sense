@@ -31,7 +31,10 @@ const {user,loading,logout} = useContext(authContext)
         {user && !loading &&(
           <nav className="flex gap-4 items-center">
           <div>
-            <ImStatsBars className="text-2xl" />
+          <a href="#stats">
+          <ImStatsBars className="text-2xl" />
+          </a>
+            
           </div>
           <div>
             <button onClick={logout} className="red_btn">Sign Out</button>

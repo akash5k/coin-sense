@@ -2,9 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   body {
     @apply relative;
+  }
+
+  html{
+  scroll-behavior: smooth;
   }
 
   .hover {
