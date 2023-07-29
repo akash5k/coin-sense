@@ -86,7 +86,7 @@ function AddIncomeModal({ show, onClose }) {
       <div className="flex flex-col gap-4 mt-6">
         <h3 className="text-2xl font-bold">Income History</h3>
         {/* div to wrap inside scroll if too long */}
-        <div className="scrollable-div max-h-[20vh] overflow-y-auto">
+        <div className=" max-h-[20vh] overflow-y-auto px-4">
           {income.map((i) => {
             const formattedDate = formatDate(new Date(i.createdAt));
             return (

@@ -1,28 +1,30 @@
-function Modal({show, onClose, children}) {
-    // useing props show and onClose for isModalOpen
-    //  and setModalisOpen passed from ..-..
+function Modal({ show, onClose, children }) {
   return (
     <div
       style={{
         transform: show ? "translateX(0%)" : "translateX(-200%)",
       }}
-      className="absolute top-20 left-0 w-full h-full z-10 transition-all duration-500"      
+      className="absolute top-0 left-0 w-full h-full z-10 transition-all duration-500"
     >
-      <div className="container mx-auto max-w-2xl h-[80vh] rounded-3xl bg-stone-300 py-6 px-4">
-        <button
-          onClick={() => {
-            onClose(false)
-            
-          }}
-          className="hover w-10 h-10 mb-4 font-bold rounded-full bg-slate-400"
-        >
-          X
-        </button>
-        {/* <div className="scrollable-div max-h-[60vh] overflow-y-auto">
-          
-        </div> */}
-        {children}
-      </div>
+      {show && (
+        <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50 py-10">
+          <div className="max-h-full w-full max-w-3xl overflow-y-auto sm:rounded-2xl bg-white relative">
+            <button
+              onClick={() => {
+                onClose(false);
+              }}
+              className="absolute top-2 right-2 w-8 h-8 font-bold rounded-full bg-slate-400 hover:bg-slate-500"
+            >
+              X
+            </button>
+            <div className="w-full">
+              <div className="p-10 my-10 mx-auto max-w-[900px]">
+                {children}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

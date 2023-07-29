@@ -93,7 +93,7 @@ function AddExpensesModal({ show, onClose }) {
 
       {/* Expence Categories */}
       {expenceAmount > 0 && (
-        <div className="flex flex-col gap-4 mt-6">
+        <div className="flex flex-col gap-4 mt-6 " >
           <div className="flex items-center justify-between">
             <h3 className="text-xl capitalize">Select expense category</h3>
             <button
@@ -104,18 +104,18 @@ function AddExpensesModal({ show, onClose }) {
             </button>
           </div>
 
-          {showAddExpense && (
+          {showAddExpense && (         
             <div className="flex items-center justify-between">
-              <input type="text" placeholder="Enter Title" ref={titleRef} />
+              <input className="w-[150px]" type="text" placeholder="Enter Title" ref={titleRef} />
 
-              <label>Pick Color</label>
-              <input type="color" className="w-24 h-10" ref={colorRef} />
+              <label htmlFor="color">Pick Color</label>
+              <input name="color"type="color" className="w-24 h-10" ref={colorRef} />
 
               <button 
               onClick={addCategoryHandler}
               className="green_btn">
               Create
-              </button>
+              </button>              
 
               <button
                 onClick={() => setShowAddExpense(false)}
@@ -140,7 +140,7 @@ function AddExpensesModal({ show, onClose }) {
                     boxShadow:
                       expense.id === selectedCategory ? "1px 1px 4px" : "none",
                   }}
-                  className="flex items-center justify-between px-4 py-4 bg-slate-400 rounded-3xl"
+                  className="flex items-center justify-between px-4 py-4 bg-blue-500 rounded-2xl text-white"
                 >
                   <div className="flex items-center gap-2">
                     {/* colored circle */}

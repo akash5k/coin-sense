@@ -45,6 +45,7 @@ function SignIn() {
               <input
                 type="email"
                 id="email"
+                value="test@gmail.com"
                 ref={emailRef}
                 autoFocus
                 className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
@@ -63,6 +64,7 @@ function SignIn() {
               <input
                 type="password"
                 id="password"
+                value="test@password"
                 ref={passwordRef}
                 className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                 required
