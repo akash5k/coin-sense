@@ -137,8 +137,8 @@ function AddExpensesModal({ show, onClose }) {
               >
                 <div
                   style={{
-                    boxShadow:
-                      expense.id === selectedCategory ? "1px 1px 4px" : "none",
+                    // boxShadow: expense.id === selectedCategory ? "2px 2px 5px" : "none",
+                    backgroundColor: expense.id === selectedCategory ? "rgb(16 185 129)" : null,                   
                   }}
                   className="flex items-center justify-between px-4 py-4 bg-blue-500 rounded-2xl text-white"
                 >
@@ -161,7 +161,7 @@ function AddExpensesModal({ show, onClose }) {
 
       {expenceAmount > 0 && selectedCategory && (
         <div className="mt-6">
-          <button onClick={addExpenseItemHandler} className="red_btn hover">
+          <button onClick={addExpenseItemHandler} className="red_btn">
             Add Expense
           </button>
         </div>

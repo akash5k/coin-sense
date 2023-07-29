@@ -32,7 +32,11 @@ function Nav() {
                 </div>
               )}
             </div>
+            {user && user.displayName ?(
             <small className="text-xl font-bold">{`Hi,${user.displayName}`}</small>
+            ):(
+              null
+            )}
           </div>
         )}
 

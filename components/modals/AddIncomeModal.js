@@ -87,7 +87,8 @@ function AddIncomeModal({ show, onClose }) {
         <h3 className="text-2xl font-bold">Income History</h3>
         {/* div to wrap inside scroll if too long */}
         <div className=" max-h-[20vh] overflow-y-auto px-4">
-          {income.map((i) => {
+        {/* sort by latest first , slice to protect original */}
+          {income.slice().sort((a, b) => b.createdAt - a.createdAt) .map((i) => {
             const formattedDate = formatDate(new Date(i.createdAt));
             return (
               <div className="flex justify-between item-center" key={i.id}>

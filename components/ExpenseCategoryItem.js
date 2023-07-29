@@ -20,7 +20,7 @@ const [viewExpenseModal, setViewExpenseModal] = useState(false)
     onClick={()=>setViewExpenseModal(true)}
     >
 
-    <div className="flex items-center justify-between hover bg-gradient-to-r from-slate-300 to-slate-500	 px-4 py-4 rounded-3xl text-white font-bold">
+    <div className="flex items-center justify-between hover bg-blue-100		px-4 py-4 rounded-3xl text-gray-600 hover:text-red-700 font-bold">
       <div className="flex items-center gap-2">
         <div
           className="w-[25px] h-[25px] rounded-full"
