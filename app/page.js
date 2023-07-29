@@ -12,7 +12,7 @@ import AddIncomeModal from "../components/modals/AddIncomeModal";
 import AddExpensesModal from "../components/modals/AddExpensesModal";
 
 import SignIn from "../components/SignIn"
-import SignUp from "./SignUp/page";
+// import SignUp from "./SignUp/page";
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
