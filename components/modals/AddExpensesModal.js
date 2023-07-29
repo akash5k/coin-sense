@@ -98,7 +98,7 @@ function AddExpensesModal({ show, onClose }) {
             <h3 className="text-xl capitalize">Select expense category</h3>
             <button
               onClick={() => setShowAddExpense(true)}
-              className="text text-lime-400"
+              className="text text-red-600"
             >
               + New Category
             </button>

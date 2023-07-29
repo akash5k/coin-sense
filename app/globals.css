@@ -13,11 +13,12 @@
   }
 
   .hover {
-    @apply hover:scale-110;
+    @apply hover:scale-105;
+    transition: transform 0.2s ease;
   }
 
   input {
-    @apply px-4 py-2 bg-slate-300 rounded-xl;
+    @apply px-4 py-2 bg-red-50 rounded-xl;
   }
 }
 
@@ -26,7 +27,7 @@
     @apply self-start rounded-full border border-red-500 bg-red-500 py-1.5 px-5 text-sm text-white transition-all hover:bg-white hover:text-red-500;
   }
   .green_btn {
-    @apply self-start rounded-full border border-green-500 bg-green-500 py-1.5 px-5 text-sm text-white transition-all hover:bg-white hover:text-red-500;
+    @apply self-start rounded-full border border-green-500 bg-green-500 py-1.5 px-5 text-sm text-white transition-all hover:bg-white hover:text-green-500;
   }
 
   .expence-card {

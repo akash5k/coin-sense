@@ -9,8 +9,8 @@ function Nav() {
 const {user,loading,logout} = useContext(authContext)
 
   return (
-    <header className="container max-w-2xl px-6 py-6 mx-auto">
-      <div className="flex justify-between ">
+    <header className="container max-w-2xl px-6  mx-auto">
+      <div className="flex justify-between py-6 ">
         {/* User Info*/}
         {user && !loading && (
           <div className="flex items-center gap-2">
