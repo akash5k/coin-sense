@@ -44,7 +44,7 @@ function AddIncomeModal({ show, onClose }) {
   const deleteIncomeEntryHandler = async (incomeId) => {
     try {
       await removeIncomeItem(incomeId);
-      toast.success("Income dleleted successfully!")
+      toast.success("Income deleted successfully!")
     } catch (error) {
       console.log(error.message);
       toast.error(error.message)

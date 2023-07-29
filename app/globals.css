@@ -13,6 +13,11 @@
   scroll-behavior: smooth;
   }
 
+  .hover {
+    @apply hover:scale-105;
+    transition: transform 0.2s ease;
+  }
+
   input {
     @apply px-4 py-2 bg-gray-100 rounded-xl;
   }
