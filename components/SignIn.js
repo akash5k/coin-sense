@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from "react";
-import Link from 'next/link'
-import { FcGoogle } from "react-icons/fc";
+import Link from "next/link";
+import { FcGoogle, FcCurrencyExchange } from "react-icons/fc";
 
 import { authContext } from "../lib/store/auth-context";
 import { auth } from "../lib/firebase";
@@ -25,6 +25,9 @@ function SignIn() {
           <div className="my-3 text-4xl font-bold tracking-wider text-center">
             <a href="#">Coin Sense</a>
           </div>
+          <div>
+            <FcCurrencyExchange className="text-[10rem]"/>
+          </div>
           <p className="mt-6 font-normal text-center text-gray-300 md:mt-0">
             Track your Expenses !
           </p>
@@ -37,9 +40,12 @@ function SignIn() {
           <h3 className="my-4 text-2xl font-semibold text-gray-700">
             Account Login
           </h3>
-          <div  className="flex flex-col space-y-5">
+          <div className="flex flex-col space-y-5">
             <div className="flex flex-col space-y-1">
-              <label htmlFor="email" className="text-sm font-semibold text-gray-500">
+              <label
+                htmlFor="email"
+                className="text-sm font-semibold text-gray-500"
+              >
                 Email address
               </label>
               <input
@@ -87,9 +93,7 @@ function SignIn() {
                 <span className="h-px bg-gray-400 w-14"></span>
               </span>
               <div className="flex flex-col space-y-4">
-                <a                  
-                  className="flex items-center justify-center cursor-pointer px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-800 rounded-md group hover:bg-gray-800 focus:outline-none"
-                >
+                <a className="flex items-center justify-center cursor-pointer px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-800 rounded-md group hover:bg-gray-800 focus:outline-none">
                   <FcGoogle />
 
                   <span
