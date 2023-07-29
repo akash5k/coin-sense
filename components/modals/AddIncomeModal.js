@@ -53,6 +53,7 @@ function AddIncomeModal({ show, onClose }) {
 
   return (
     <Modal show={show} onClose={onClose}>
+     <h1 className="text-2xl font-bold pb-2 text-center">Add Income</h1>
       <form onSubmit={addIncomeHandler} className="flex flex-col gap-4">
         <div className="input-group">
           <label htmlFor="amount">Income Amount</label>

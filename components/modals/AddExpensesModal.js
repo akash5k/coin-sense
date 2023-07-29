@@ -69,6 +69,7 @@ function AddExpensesModal({ show, onClose }) {
   }
   return (
     <Modal show={show} onClose={onClose}>
+    <h1 className="text-2xl font-bold pb-2 text-center">Add Expense</h1>
       <div className="flex flex-col gap-4">
         <label>Enter an amount</label>
         <input
