@@ -5,7 +5,6 @@ function Modal({ show, onClose, children }) {
       style={{
         transform: show ? "scale(1)" : "scale(0)",
         transformOrigin: "center",
-        transition: "transform 0.3s ease"
       }}
       className="absolute top-0 left-0 w-full h-full z-10 transition-all duration-500"
     >
@@ -20,6 +19,7 @@ function Modal({ show, onClose, children }) {
             />
 
             <div className="w-full">
+              {/* <div className="px-10 py-5 my-10 mx-auto max-w-[900px]">{children}</div> */}
               <div className="px-10 py-5 my-10 mx-auto max-w-[900px]">{children}</div>
             </div>
           </div>

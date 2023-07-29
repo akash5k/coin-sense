@@ -28,7 +28,7 @@ function SignIn() {
           <div>
             <FcCurrencyExchange className="text-[10rem]"/>
           </div>
-          <p className="mt-6 font-normal text-center text-gray-300 md:mt-0">
+          <p className="mt-6 font-normal text-center text-gray-200 md:mt-0">
             Track your Expenses !
           </p>
           <p className="flex flex-col items-center justify-center mt-10 text-center">
@@ -56,7 +56,7 @@ function SignIn() {
                 autoFocus
                 className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                 required
-              />
+              />             
             </div>
             <div className="flex flex-col space-y-1">
               <div className="flex items-center justify-between">
@@ -75,7 +75,9 @@ function SignIn() {
                 className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                 required
               />
+              <span className="text-sm font-light text-gray-400">Provided credentials for demo </span>
             </div>
+            
             <div className="flex items-center space-x-2"></div>
             <div>
               <button
@@ -93,7 +95,7 @@ function SignIn() {
                 <span className="h-px bg-gray-400 w-14"></span>
               </span>
               <div className="flex flex-col space-y-4">
-                <a className="flex items-center justify-center cursor-pointer px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-800 rounded-md group hover:bg-gray-800 focus:outline-none">
+                <div className="flex items-center justify-center cursor-pointer px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-800 rounded-md group hover:bg-gray-800 focus:outline-none">
                   <FcGoogle />
 
                   <span
@@ -102,7 +104,7 @@ function SignIn() {
                   >
                     Google
                   </span>
-                </a>
+                </div>
               </div>
             </div>
           </div>

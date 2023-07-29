@@ -9,10 +9,10 @@ function Nav() {
 
   return (
     <div className="container max-w-2xl px-6  mx-auto">
-      <div className="flex justify-between py-6 ">
+      <div className="flex justify-between">
         {/* User Info*/}
         {user && !loading && (
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 py-6">
             <div className="w-[40px] h-[40px] rounded-full overflow-hidden">
               {user && user.photoURL ? (
                 <img

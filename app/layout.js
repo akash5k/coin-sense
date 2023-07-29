@@ -25,7 +25,6 @@ export default function RootLayout({ children }) {
         <title>CoinSense</title>
         <link rel="icon" href="/favicon.ico" />
       </head>
-
       <body className={inter.className}>
         <AuthContextProvider>
           <FinanceContextProvider>
@@ -35,6 +34,9 @@ export default function RootLayout({ children }) {
           </FinanceContextProvider>
         </AuthContextProvider>
       </body>
+      {/* <footer>
+       <span className="flex items-center justify-center bg-red-600 font-medium text-white">Under Construction</span>
+      </footer> */}
     </html>
   );
 }
