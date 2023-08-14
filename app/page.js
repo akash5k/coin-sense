@@ -10,7 +10,7 @@ import ExpenseCategoryItem from "../components/ExpenseCategoryItem";
 import AddIncomeModal from "../components/modals/AddIncomeModal";
 import AddExpensesModal from "../components/modals/AddExpensesModal";
 
-import SignIn from "../components/SignIn"
+import SignIn from "../components/SignIn";
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
@@ -31,14 +31,13 @@ import { FaRegTrashAlt } from "react-icons/fa";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Home() {
-
   const [showAddIncomemodal, setShowAddIncomeModal] = useState(false);
   const [showAddExpenseModal, setShowAddExpenseModal] = useState(false);
 
   const [balance, setBalance] = useState(0);
 
   const { expenses, income } = useContext(financeContext);
-  const {user} = useContext(authContext);
+  const { user } = useContext(authContext);
 
   useEffect(() => {
     const newbalance =
@@ -52,18 +51,17 @@ export default function Home() {
     setBalance(newbalance);
   }, [expenses, income]);
 
-  if(!user){
+  if (!user) {
     return <SignIn />;
   }
 
   return (
     <>
-      
       <AddIncomeModal
         show={showAddIncomemodal}
         onClose={setShowAddIncomeModal}
       />
-      
+
       <AddExpensesModal
         show={showAddExpenseModal}
         onClose={setShowAddExpenseModal}
@@ -100,21 +98,16 @@ export default function Home() {
           <h3 className="text-2xl font-bold">My Expenses</h3>
           <div className="flex flex-col gap-4 mt-6">
             {expenses.map((expense) => {
-              return (
-                <ExpenseCategoryItem
-                  key={expense.id}
-                  expense={expense}
-                />
-              );
+              return <ExpenseCategoryItem key={expense.id} expense={expense} />;
             })}
           </div>
         </section>
 
         {/**Chart Section */}
         <section>
-        <a id="stats"/>
+          <a id="stats" />
           <h3 className="text-2xl font-bold">Stats</h3>
-          <div className="w-1/2 mx-auto">
+          <div className="w-full md:w-1/2 mx-auto">
             <Doughnut
               data={{
                 labels: expenses.map((expense) => expense.title),
