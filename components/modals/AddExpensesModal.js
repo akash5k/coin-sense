@@ -8,7 +8,7 @@ import Modal from "../Modal";
 
 function AddExpensesModal({ show, onClose }) {
   const [expenceAmount, setExpenceAmount] = useState("");
-  const  [expenceDescription, setExpenceDescription] = useState("");
+  const [expenceDescription, setExpenceDescription] = useState("");
   const [selectedCategory, setselectedCategory] = useState(null);
   const [showAddExpense, setShowAddExpense] = useState(false);
 
@@ -42,34 +42,32 @@ function AddExpensesModal({ show, onClose }) {
 
       console.log(newExpense);
       setExpenceAmount("");
-      setExpenceDescription("")
+      setExpenceDescription("");
       setselectedCategory("");
       onClose();
-      toast.success("Expense item added!")
+      toast.success("Expense item added!");
     } catch (error) {
-      console.log(error.message)
-      toast.error(error.message)
+      console.log(error.message);
+      toast.error(error.message);
     }
   };
 
-  const addCategoryHandler = async () =>{
+  const addCategoryHandler = async () => {
     const title = titleRef.current.value;
     const color = colorRef.current.value;
 
     try {
-      await addCategory({title,color,total:0})
-      setShowAddExpense(false)
-      toast.success("Categort created!")
-
+      await addCategory({ title, color, total: 0 });
+      setShowAddExpense(false);
+      toast.success("Categort created!");
     } catch (error) {
-      console.log(error.message)
-      toast.error(error.message)
+      console.log(error.message);
+      toast.error(error.message);
     }
-
-  }
+  };
   return (
     <Modal show={show} onClose={onClose}>
-    <h1 className="text-2xl font-bold pb-2 text-center">Add Expense</h1>
+      <h1 className="text-2xl font-bold pb-2 text-center">Add Expense</h1>
       <div className="flex flex-col gap-4">
         <label>Enter an amount</label>
         <input
@@ -79,51 +77,67 @@ function AddExpensesModal({ show, onClose }) {
           onChange={(e) => {
             setExpenceAmount(e.target.value);
           }}
-        />        
+        />
         <label>Enter expence description</label>
         <input
           type="text"
-          placeholder="Enter desc"
+          placeholder="Expense description (optional)"
           value={expenceDescription}
           onChange={(e) => {
             setExpenceDescription(e.target.value);
           }}
         />
-        
       </div>
 
       {/* Expence Categories */}
       {expenceAmount > 0 && (
-        <div className="flex flex-col gap-4 mt-6 " >
+        <div className="flex flex-col gap-4 mt-6 ">
           <div className="flex items-center justify-between">
             <h3 className="text-xl capitalize">Select expense category</h3>
             <button
               onClick={() => setShowAddExpense(true)}
-              className="text text-red-600"
+              className="text text-green-600"
             >
               + New Category
             </button>
           </div>
 
-          {showAddExpense && (         
-            <div className="flex items-center justify-between">
-              <input className="" type="text" placeholder="Enter Title" ref={titleRef} />
+          {showAddExpense && (
+            <div className="flex flex-col md:flex-row items-center justify-between">
+              <input
+                className="mb-2 md:mb-0 md:mr-2 w-full md:w-auto px-4 py-2 bg-gray-100 rounded-xl"
+                type="text"
+                placeholder="Enter Title"
+                ref={titleRef}
+              />
 
-              <label htmlFor="color">Pick Color</label>
-              <input name="color"type="color" className="w-24 h-10" ref={colorRef} />
+              <div className="mb-2 md:mb-0 md:mr-2 ">
+                <label htmlFor="color" className="pr-2">
+                  Pick Color
+                </label>
+                <input
+                  name="color"
+                  type="color"
+                  className="w-20 h-10 rounded-sm "
+                  ref={colorRef}
+                />
+              </div>
 
-              <button 
-              onClick={addCategoryHandler}
-              className="green_btn">
-              Create
-              </button>              
+              <div>
+                <button
+                  onClick={addCategoryHandler}
+                  className="green_btn mb-2 md:mb-0 md:mr-2"
+                >
+                  Create
+                </button>
 
-              <button
-                onClick={() => setShowAddExpense(false)}
-                className="red_btn"
-              >
-                Cancel
-              </button>
+                <button
+                  onClick={() => setShowAddExpense(false)}
+                  className="red_btn"
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
           )}
 
@@ -139,9 +153,12 @@ function AddExpensesModal({ show, onClose }) {
                 <div
                   style={{
                     // boxShadow: expense.id === selectedCategory ? "2px 2px 5px" : "none",
-                    backgroundColor: expense.id === selectedCategory ? "rgb(16 185 129)" : null,                   
+                    backgroundColor:
+                      expense.id === selectedCategory
+                        ? "rgb(16 185 129)"
+                        : null,
                   }}
-                  className="flex items-center justify-between px-4 py-4 bg-blue-500 rounded-2xl text-white"
+                  className="flex items-center justify-between px-4 py-4 bg-gray-700 rounded-2xl text-white"
                 >
                   <div className="flex items-center gap-2">
                     {/* colored circle */}

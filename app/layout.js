@@ -13,10 +13,10 @@ import AuthContextProvider from "../lib/store/auth-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// export const metadata = {
-//   title: "CoinSense",
-//   description: "A way to track your expenses",
-// };
+export const metadata = {
+  title: "CoinSense",
+  description: "A way to track your expenses",
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -33,10 +33,7 @@ export default function RootLayout({ children }) {
             {children}
           </FinanceContextProvider>
         </AuthContextProvider>
-      </body>
-      {/* <footer>
-       <span className="flex items-center justify-center bg-red-600 font-medium text-white">Under Construction</span>
-      </footer> */}
+      </body>      
     </html>
   );
 }

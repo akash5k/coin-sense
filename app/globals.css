@@ -4,9 +4,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+
 @layer base {
   body {
-    @apply relative;
+    /* @apply relative; */
+    /* @apply relative text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black;   */
+    @apply relative text-white bg-gray-900;      
+  }
+
+  .modal_style{
+    @apply text-white bg-gray-900;
   }
 
   html{
@@ -14,12 +21,12 @@
   }
 
   .hover {
-    @apply hover:scale-105;
-    transition: transform 0.2s ease;
+    @apply hover:scale-105 hover:text-yellow-50;
+    transition: transform 0.2s ease;    
   }
 
   input {
-    @apply px-4 py-2 bg-gray-100 rounded-xl;
+    @apply px-4 py-2 bg-gray-100 rounded-xl text-black;
   }
 }
 

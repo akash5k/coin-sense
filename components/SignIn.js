@@ -19,13 +19,13 @@ function SignIn() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen p-4 bg-gray-100 lg:justify-center">
+    <div className="flex items-center justify-center min-h-screen p-4  lg:justify-center">
       <div className="flex flex-col overflow-hidden bg-white rounded-md shadow-lg max md:flex-row md:flex-1 lg:max-w-screen-md">
         <div className="p-4 py-6 text-white bg-blue-500 md:w-80 md:flex-shrink-0 md:flex md:flex-col md:items-center md:justify-evenly">
           <div className="my-3 text-4xl font-bold tracking-wider text-center">
             <a href="#">Coin Sense</a>
           </div>
-          <div>
+          <div className="flex justify-center ">
             <FcCurrencyExchange className="text-[10rem]"/>
           </div>
           <p className="mt-6 font-normal text-center text-gray-200 md:mt-0">
@@ -36,15 +36,15 @@ function SignIn() {
             <Link className="underline" href="/SignUp">Get Started!</Link>             */}
           </p>
         </div>
-        <div className="p-5 bg-white md:flex-1">
-          <h3 className="my-4 text-2xl font-semibold text-gray-700">
+        <div className="p-5 bg-gray-800 md:flex-1">
+          <h3 className="my-4 text-2xl font-semibold text-gray-100">
             Account Login
           </h3>
           <div className="flex flex-col space-y-5">
             <div className="flex flex-col space-y-1">
               <label
                 htmlFor="email"
-                className="text-sm font-semibold text-gray-500"
+                className="text-sm font-semibold text-gray-200"
               >
                 Email address
               </label>
@@ -62,7 +62,7 @@ function SignIn() {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="text-sm font-semibold text-gray-500"
+                  className="text-sm font-semibold text-gray-200"
                 >
                   Password
                 </label>
@@ -91,16 +91,16 @@ function SignIn() {
             <div className="flex flex-col space-y-5">
               <span className="flex items-center justify-center space-x-2">
                 <span className="h-px bg-gray-400 w-14"></span>
-                <span className="font-normal text-gray-500">or login with</span>
+                <span className="font-normal text-gray-200">or login with</span>
                 <span className="h-px bg-gray-400 w-14"></span>
               </span>
               <div className="flex flex-col space-y-4">
-                <div className="flex items-center justify-center cursor-pointer px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-800 rounded-md group hover:bg-gray-800 focus:outline-none">
+                <div className="flex items-center justify-center cursor-pointer px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-100 rounded-md group hover:bg-gray-700 focus:outline-none">
                   <FcGoogle />
 
                   <span
                     onClick={googleLoginHandler}
-                    className="text-sm font-medium text-gray-800 group-hover:text-white"
+                    className="text-sm font-medium text-gray-100 group-hover:text-white"
                   >
                     Google
                   </span>

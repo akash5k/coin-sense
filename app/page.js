@@ -124,7 +124,7 @@ export default function Home() {
                     data: expenses.map((expense) => expense.total),
                     backgroundColor: expenses.map((expense) => expense.color),
                     borderColor: ["#fff"],
-                    borderWidth: 5,
+                    borderWidth: 1,
                   },
                 ],
               }}
