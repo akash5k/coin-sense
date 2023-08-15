@@ -19,14 +19,14 @@ function SignIn() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen p-4  lg:justify-center">
-      <div className="flex flex-col overflow-hidden bg-white rounded-md shadow-lg max md:flex-row md:flex-1 lg:max-w-screen-md">
-        <div className="p-4 py-6 text-white bg-blue-500 md:w-80 md:flex-shrink-0 md:flex md:flex-col md:items-center md:justify-evenly">
+    <div className="flex items-center justify-center min-h-screen pt-1  lg:justify-center">
+      <div className="flex flex-col overflow-hidden bg-white rounded-2xl shadow-2xl max md:flex-row md:flex-1 lg:max-w-screen-md">
+        <div className="p-4 pt-4 pb-1 md:py-6 text-white bg-[#503a93] md:w-80 md:flex-shrink-0 md:flex md:flex-col md:items-center md:justify-evenly">
           <div className="my-3 text-4xl font-bold tracking-wider text-center">
             <a href="#">Coin Sense</a>
           </div>
-          <div className="flex justify-center ">
-            <FcCurrencyExchange className="text-[10rem]"/>
+          <div className="hidden md:block justify-center">
+            <FcCurrencyExchange className="text-[10rem]" />
           </div>
           <p className="mt-6 font-normal text-center text-gray-200 md:mt-0">
             Track your Expenses !
@@ -36,7 +36,7 @@ function SignIn() {
             <Link className="underline" href="/SignUp">Get Started!</Link>             */}
           </p>
         </div>
-        <div className="p-5 bg-gray-800 md:flex-1">
+        <div className="p-5 bg-[#1C1B1F] md:flex-1">
           <h3 className="my-4 text-2xl font-semibold text-gray-100">
             Account Login
           </h3>
@@ -56,7 +56,7 @@ function SignIn() {
                 autoFocus
                 className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                 required
-              />             
+              />
             </div>
             <div className="flex flex-col space-y-1">
               <div className="flex items-center justify-between">
@@ -75,9 +75,11 @@ function SignIn() {
                 className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                 required
               />
-              <span className="text-sm font-light text-gray-400">Provided credentials for demo </span>
+              <span className="text-sm font-light text-gray-400">
+                Provided credentials for demo{" "}
+              </span>
             </div>
-            
+
             <div className="flex items-center space-x-2"></div>
             <div>
               <button
@@ -94,7 +96,7 @@ function SignIn() {
                 <span className="font-normal text-gray-200">or login with</span>
                 <span className="h-px bg-gray-400 w-14"></span>
               </span>
-              <div className="flex flex-col space-y-4">
+              <div className="flex flex-col space-y-4 pb-4">
                 <div className="flex items-center justify-center cursor-pointer px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-100 rounded-md group hover:bg-gray-700 focus:outline-none">
                   <FcGoogle />
 

@@ -8,7 +8,7 @@ function Nav() {
   const { user, loading, logout } = useContext(authContext);
 
   return (
-    <div className="container max-w-2xl px-6  mx-auto">
+    <div className="container max-w-2xl px-4  mx-auto">
       <div className="flex justify-between">
         {/* User Info*/}
         {user && !loading && (
@@ -32,11 +32,9 @@ function Nav() {
                 </div>
               )}
             </div>
-            {user && user.displayName ?(
-            <small className="text-xl font-bold">{`Hi,${user.displayName}`}</small>
-            ):(
-              null
-            )}
+            {user && user.displayName ? (
+              <small className="text-xl font-bold">{`Hi,${user.displayName}`}</small>
+            ) : null}
           </div>
         )}
 
@@ -50,7 +48,7 @@ function Nav() {
             </div>
             <div>
               <button onClick={logout} className="red_btn">
-                Sign Out
+                Logout
               </button>
             </div>
           </nav>

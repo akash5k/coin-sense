@@ -104,11 +104,11 @@ export default function Home() {
         </section>
 
         {/**Chart Section */}
-        <section>
+        <section className="mb-[50px]">
           <a id="stats" />
           <h3 className="text-2xl font-bold">Stats</h3>
           <div className="w-full md:w-1/2 mx-auto">
-            <Doughnut
+            <Doughnut className="mx-auto"
               data={{
                 labels: expenses.map((expense) => expense.title),
                 datasets: [

@@ -29,7 +29,7 @@ function Modal({ show, onClose, children }) {
       {modalVisible && (
         <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm">
         <div className="flex items-center justify-center h-screen">
-          <div className="modal_style max-w-3xl mx-auto  rounded-2xl overflow-hidden w-screen m-4">
+          <div className="modal_style max-w-3xl mx-auto  rounded-2xl overflow-hidden w-screen m-6">
             <div className="flex justify-end">
               <AiFillCloseCircle
                 onClick={closeModal}

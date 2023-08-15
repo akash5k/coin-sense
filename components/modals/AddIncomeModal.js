@@ -85,7 +85,7 @@ function AddIncomeModal({ show, onClose }) {
       </form>
 
       <div className="flex flex-col gap-4 mt-6">
-        <h3 className="text-2xl font-bold">Income History</h3>
+        <h3 className="text-xl font-bold text-gray-500">Income History</h3>
         {/* div to wrap inside scroll if too long */}
         <div className=" max-h-[20vh] overflow-y-auto px-4">
         {/* sort by latest first , slice to protect original */}
@@ -95,7 +95,7 @@ function AddIncomeModal({ show, onClose }) {
               <div className="flex justify-between item-center" key={i.id}>
                 <div>
                   <p className="font-semibold">{i.description}</p>
-                  <small className="text-xs">{formattedDate}</small>
+                  <small className="text-xs text-gray-400">{formattedDate}</small>
                   {/* <small className="text-xs">{i.createdAt.toISOString()}</small> */}
                 </div>
                 <p className="flex items-center gap-2">
@@ -105,7 +105,7 @@ function AddIncomeModal({ show, onClose }) {
                       deleteIncomeEntryHandler(i.id);
                     }}
                   >
-                    <FaRegTrashAlt />
+                    <FaRegTrashAlt className="text-gray-500 hover:text-white"/>
                   </button>
                 </p>
               </div>
