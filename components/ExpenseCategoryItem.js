@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useState , useContext} from "react";
 import { currencyFormatter } from "../lib/utils";
 import ViewExpenseModal from "./modals/ViewExpenseModal";
 
+import { DarkModeContext } from "../lib/store/dark-mode-context";
+
+
 function ExpenceCategoryItem({ expense }) {
-  const [viewExpenseModal, setViewExpenseModal] = useState(false);
+  const [viewExpenseModal, setViewExpenseModal] = useState(false);  
+  const { isDarkMode } = useContext(DarkModeContext);
 
   return (
     <>
@@ -17,8 +21,8 @@ function ExpenceCategoryItem({ expense }) {
         className="relative focus:outline-none"
         onClick={() => setViewExpenseModal(true)}
       >
-        <div className="group p-4 rounded-3xl text-gray-200 hover font-bold backdrop-blur  ">
-          <div className="absolute inset-0 bg-[#4A4458] rounded-3xl"></div>
+        <div className={`group p-4 rounded-3xl  hover font-bold backdrop-blur ${isDarkMode ? 'text-gray-200' : 'text-white'} `}>
+        <div className={`absolute inset-0 rounded-3xl ${isDarkMode ?  'bg-[#4A4458]' : 'bg-[#264653]' }`}></div>
           <div className="relative z-10 flex items-center justify-between px-4 py-2">
             <div className="flex items-center gap-2">
               <div

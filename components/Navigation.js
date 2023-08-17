@@ -1,20 +1,15 @@
 import React from "react";
 import { ImStatsBars } from "react-icons/im";
-import { useContext ,useState} from "react";
+import { useContext } from "react";
+
+import { DarkModeSwitch } from "react-toggle-dark-mode";
 
 import { authContext } from "../lib/store/auth-context";
-import { DarkModeSwitch } from "react-toggle-dark-mode";
-import { useTheme } from "next-themes";
+import { DarkModeContext } from "../lib/store/dark-mode-context";
+
 function Nav() {
   const { user, loading, logout } = useContext(authContext);
-
-  const [isDarkMode, setDarkMode] = useState(false);
-  const { theme, setTheme } = useTheme("light");
-
-  const toggleDarkMode = (checked) => {
-    setDarkMode(checked);
-    setTheme(isDarkMode ? "light" : "dark");
-  };
+  const { isDarkMode, toggleDarkMode } = useContext(DarkModeContext);
 
   return (
     <div className="container max-w-2xl px-4  mx-auto">

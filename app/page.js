@@ -3,6 +3,7 @@
 import { useState, useContext, useEffect } from "react";
 import { financeContext } from "../lib/store/finance-context";
 import { authContext } from "../lib/store/auth-context";
+import { DarkModeContext } from "../lib/store/dark-mode-context";
 
 import { currencyFormatter } from "../lib/utils";
 import ExpenseCategoryItem from "../components/ExpenseCategoryItem";
@@ -60,7 +61,7 @@ export default function Home() {
     <>
       <AddIncomeModal
         show={showAddIncomemodal}
-        onClose={setShowAddIncomeModal}
+        onClose={setShowAddIncomeModal}        
       />
 
       <AddExpensesModal

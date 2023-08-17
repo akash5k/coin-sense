@@ -12,6 +12,7 @@ import Nav from "../components/Navigation";
 
 import FinanceContextProvider from "../lib/store/finance-context";
 import AuthContextProvider from "../lib/store/auth-context";
+import DarkModeContext from "../lib/store/dark-mode-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={inter.className}>
       <ThemeProvider  attribute="class">
+      <DarkModeContext>
         <AuthContextProvider>
           <FinanceContextProvider>
             <ToastContainer />
@@ -36,7 +38,8 @@ export default function RootLayout({ children }) {
             {children}
           </FinanceContextProvider>
         </AuthContextProvider>
-        </ThemeProvider >
+      </DarkModeContext>
+      </ThemeProvider >
       </body>      
     </html>
   );
