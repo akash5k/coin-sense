@@ -4,6 +4,8 @@ import { useState, useContext, useEffect } from "react";
 import { financeContext } from "../lib/store/finance-context";
 import { authContext } from "../lib/store/auth-context";
 import { DarkModeContext } from "../lib/store/dark-mode-context";
+import {CiWallet} from "react-icons/ci"
+import {VscGraphLine,VscPieChart} from "react-icons/vsc"
 
 import { currencyFormatter } from "../lib/utils";
 import ExpenseCategoryItem from "../components/ExpenseCategoryItem";
@@ -70,7 +72,7 @@ export default function Home() {
 
       <main className="container max-w-2xl px-6 mx-auto">
         <section>
-          <small className="text-gray-400 text-md">My Balance</small>
+          <small className="text-gray-500 dark:text-gray-300 text-md">My Balance <CiWallet className="inline "/></small>
           <h2 className="text-4xl font-bold">{currencyFormatter(balance)}</h2>
         </section>
 
@@ -96,7 +98,7 @@ export default function Home() {
 
         {/*expenses*/}
         <section className="py-6">
-          <h3 className="text-2xl font-bold">My Expenses</h3>
+          <h3 className="text-2xl font-bold">My Expenses <VscGraphLine className="inline ml-2"/></h3>
           <div className="flex flex-col gap-4 mt-6">
             {expenses.length === 0 ? (
               <p className="text-gray-500">
@@ -115,7 +117,7 @@ export default function Home() {
         {/**Chart Section */}
         <section className="mb-[50px]">
           <a id="stats" />
-          <h3 className="text-2xl font-bold">Stats</h3>
+          <h3 className="text-2xl font-bold">Stats <VscPieChart className="inline "/></h3>
           <div className="w-full md:w-1/2 mx-auto">
             <Doughnut
               className="mx-auto"

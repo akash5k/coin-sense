@@ -105,7 +105,7 @@ function AddIncomeModal({ show, onClose }) {
                       deleteIncomeEntryHandler(i.id);
                     }}
                   >
-                    <FaRegTrashAlt className="text-gray-500 hover:text-white"/>
+                    <FaRegTrashAlt />
                   </button>
                 </p>
               </div>

@@ -4,10 +4,10 @@ import { FcGoogle, FcCurrencyExchange } from "react-icons/fc";
 
 import { authContext } from "../lib/store/auth-context";
 import { auth } from "../lib/firebase";
+import { toast } from "react-toastify";
 
 function SignIn() {
-  const { googleLoginHandler, emailLoginHandler, emailSignupHandler } =
-    useContext(authContext);
+  const { googleLoginHandler, emailLoginHandler, emailSignupHandler , handleResetPassword} = useContext(authContext);
   const [showSignUpModal, setShowSignUpModal] = useState(false);
 
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -24,6 +24,10 @@ function SignIn() {
     emailLoginHandler(auth, email, password);
   };
 
+ const resetPasswordHandler = () => {
+    const email = emailRef.current.value;
+    handleResetPassword(email);  
+  }
   //signup with email
   const signupEmailRef = useRef();
   const signupPasswordRef = useRef();
@@ -42,7 +46,6 @@ function SignIn() {
 
     emailSignupHandler(auth, email, password, name);
   };
-
 
   const handleOpenSignUpModal = () => {
     setShowSignUpModal(true);
@@ -115,13 +118,19 @@ function SignIn() {
                 required
               />
             </div>
+              <span
+                onClick={resetPasswordHandler}
+                className="text-sm rounded-sm underline text-red-400 hover:text-blue-600 duration-300 cursor-pointer"
+              >
+                Forgot password ?
+              </span>
 
             <div className="flex items-center space-x-2"></div>
             <div>
               <button
                 onClick={handleEmailLogin}
                 className="w-full px-4 py-2 text-lg font-semibold text-white transition-colors duration-300 bg-blue-500 rounded-md shadow hover:bg-blue-600 focus:outline-none focus:ring-blue-200 focus:ring-4"
-              >
+              >              
                 Log in
               </button>
               <button
@@ -163,7 +172,7 @@ function SignIn() {
                       htmlFor="email"
                       className="text-sm font-semibold text-gray-600"
                     >
-                    Password
+                      Password
                     </label>
                     <input
                       type="password"
@@ -175,7 +184,7 @@ function SignIn() {
                       htmlFor="email"
                       className="text-sm font-semibold text-gray-600"
                     >
-                    Confirm your Password
+                      Confirm your Password
                     </label>
                     <input
                       type="password"

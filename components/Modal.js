@@ -31,11 +31,11 @@ function Modal({ show, onClose, children }) {
       {modalVisible && (
         <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm">
           <div className="flex items-center justify-center h-screen">
-            <div className={`max-w-3xl mx-auto rounded-2xl overflow-hidden w-screen m-6 ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
-              <div className="flex justify-end">
+            <div className={`max-w-3xl mx-auto rounded-2xl overflow-hidden w-screen m-6 ${isDarkMode ? 'bg-[#121212]' : 'bg-white'}`}>
+              <div className="flex justify-end ">
                 <AiFillCloseCircle
                   onClick={closeModal}
-                  className="w-12 h-12 p-2 cursor-pointer hover:bg-gray-100 transition-all"
+                  className="w-12 h-12 p-2 cursor-pointer hover:bg-gray-200 rounded-xl transition-all"
                 />
               </div>
               <div className="p-8 pt-2">{children}</div>
