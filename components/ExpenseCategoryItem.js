@@ -22,7 +22,8 @@ function ExpenceCategoryItem({ expense }) {
         onClick={() => setViewExpenseModal(true)}
       >
         <div className={`group p-4 rounded-3xl  hover font-bold backdrop-blur ${isDarkMode ? 'text-gray-200' : 'text-white'} `}>
-        <div className={`absolute inset-0 rounded-3xl ${isDarkMode ?  'bg-[#4A4458]' : 'bg-[#264653]' }`}></div>
+        {/* //colors defined in tailwind css config */}
+        <div className={`absolute inset-0 rounded-3xl ${isDarkMode ?  'bg-dark-secondary' : 'bg-light-secondary' }`}></div> 
           <div className="relative z-10 flex items-center justify-between px-4 py-2">
             <div className="flex items-center gap-2">
               <div

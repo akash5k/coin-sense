@@ -140,7 +140,7 @@ function AddExpensesModal({ show, onClose }) {
               </div>
             </div>
           )}
-
+          <div className="custom-scrollbar-x overflow-y-hidden flex gap-3 h-28">
           {expenses.map((expense) => {
             return (
               <button
@@ -155,10 +155,10 @@ function AddExpensesModal({ show, onClose }) {
                     // boxShadow: expense.id === selectedCategory ? "2px 2px 5px" : "none",
                     backgroundColor:
                       expense.id === selectedCategory
-                        ? "rgb(16 185 129)"
+                        ? "#06b6d4"
                         : null,
                   }}
-                  className="flex items-center justify-between px-4 py-4 bg-gray-700 rounded-2xl text-white"
+                  className="flex items-center justify-between px-4 py-4 bg-light-secondary dark:bg-dark-secondary rounded-2xl text-white"
                 >
                   <div className="flex items-center gap-2">
                     {/* colored circle */}
@@ -171,9 +171,10 @@ function AddExpensesModal({ show, onClose }) {
                     <h4>{expense.title}</h4>
                   </div>
                 </div>
-              </button>
+              </button>              
             );
           })}
+          </div>
         </div>
       )}
 

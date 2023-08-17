@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
-@layer base {
+@layer base { 
   body {   
     @apply relative;      
   }
@@ -26,10 +26,10 @@
 
 @layer utilities {
   .red_btn {
-    @apply self-start mr-4 rounded-lg bg-red-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-red-500/20 transition-all hover:shadow-lg hover:shadow-red-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none;
+    @apply rounded-lg px-4 py-2 bg-red-600 text-red-100 hover:bg-red-700 duration-300;    
   }
   .green_btn {
-    @apply self-start mr-4 rounded-lg bg-green-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none;
+    @apply rounded-lg px-4 py-2 bg-green-700 text-green-100 hover:bg-green-800 duration-300;
   }
 
   .expence-card {
@@ -38,5 +38,23 @@
 
   .input-group {
     @apply flex flex-col gap-4;
+  }
+  .custom-scrollbar-x {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .custom-scrollbar-x::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .custom-scrollbar-x::-webkit-scrollbar-thumb {
+    background-color: #4a5568;
+    border-radius: 4px;
+    border: 1px solid #2d3748;
+  }
+
+  .custom-scrollbar-x::-webkit-scrollbar-thumb:hover {
+    background-color: #718096;
   }
 }
