@@ -11,6 +11,18 @@ function Nav() {
   const { user, loading, logout } = useContext(authContext);
   const { isDarkMode, toggleDarkMode } = useContext(DarkModeContext);
 
+  const currentDate = new Date();
+const currentHour = currentDate.getHours();
+let greeting = "";
+
+if (currentHour >= 5 && currentHour < 12) {
+  greeting = "Good morning";
+} else if (currentHour >= 12 && currentHour < 18) {
+  greeting = "Good afternoon";
+} else {
+  greeting = "Good evening";
+}
+
   return (
     <div className="container max-w-2xl px-4  mx-auto">
       <div className="flex justify-between">
@@ -37,8 +49,8 @@ function Nav() {
               )}
             </div>
             {user && user.displayName ? (
-              <small className="text-xl font-bold">{`Hi,${user.displayName}`}</small>
-            ) : null}
+      <small className="text-sm font-semibold">{`${greeting}, ${user.displayName}`}</small>
+    ) : null}
           </div>
         )}
 

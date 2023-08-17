@@ -6,8 +6,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ThemeProvider } from "next-themes";
 
-
-
 import Nav from "../components/Navigation";
 
 import FinanceContextProvider from "../lib/store/finance-context";
@@ -15,11 +13,6 @@ import AuthContextProvider from "../lib/store/auth-context";
 import DarkModeContext from "../lib/store/dark-mode-context";
 
 const inter = Inter({ subsets: ["latin"] });
-
-// export const metadata = {
-//   title: "CoinSense",
-//   description: "A way to track your expenses",
-// };
 
 export default function RootLayout({ children }) {
   return (

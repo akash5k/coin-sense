@@ -11,7 +11,7 @@ import ExpenseCategoryItem from "../components/ExpenseCategoryItem";
 import AddIncomeModal from "../components/modals/AddIncomeModal";
 import AddExpensesModal from "../components/modals/AddExpensesModal";
 
-import SignIn from "../components/SignIn";
+import SignIn from "../components/auth-page";
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
@@ -28,7 +28,6 @@ import {
 
 //icons
 import { FaRegTrashAlt } from "react-icons/fa";
-
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -61,7 +60,7 @@ export default function Home() {
     <>
       <AddIncomeModal
         show={showAddIncomemodal}
-        onClose={setShowAddIncomeModal}        
+        onClose={setShowAddIncomeModal}
       />
 
       <AddExpensesModal
@@ -99,9 +98,17 @@ export default function Home() {
         <section className="py-6">
           <h3 className="text-2xl font-bold">My Expenses</h3>
           <div className="flex flex-col gap-4 mt-6">
-            {expenses.map((expense) => {
-              return <ExpenseCategoryItem key={expense.id} expense={expense} />;
-            })}
+            {expenses.length === 0 ? (
+              <p className="text-gray-500">
+                No expenses to display. Add some expenses!
+              </p>
+            ) : (
+              expenses.map((expense) => {
+                return (
+                  <ExpenseCategoryItem key={expense.id} expense={expense} />
+                );
+              })
+            )}
           </div>
         </section>
 
@@ -110,7 +117,8 @@ export default function Home() {
           <a id="stats" />
           <h3 className="text-2xl font-bold">Stats</h3>
           <div className="w-full md:w-1/2 mx-auto">
-            <Doughnut className="mx-auto"
+            <Doughnut
+              className="mx-auto"
               data={{
                 labels: expenses.map((expense) => expense.title),
                 datasets: [
