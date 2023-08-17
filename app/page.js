@@ -28,6 +28,7 @@ import {
 //icons
 import { FaRegTrashAlt } from "react-icons/fa";
 
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Home() {

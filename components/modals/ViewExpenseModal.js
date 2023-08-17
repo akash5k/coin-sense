@@ -39,7 +39,7 @@ function ViewExpenseModal({ show, onClose, expense }) {
         toast.error(error.message)
     }
   }
-  return (
+  return ( 
     <Modal show={show} onClose={onClose}>
       <div className="flex items-center justify-between ">
         <h2 className="text-2xl capitalize">{expense.title}</h2>
@@ -77,7 +77,7 @@ function ViewExpenseModal({ show, onClose, expense }) {
           );
         })}
       </div>
-    </Modal>
+    </Modal>    
   );
 }
 

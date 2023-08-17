@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ThemeProvider } from "next-themes";
+
 
 
 import Nav from "../components/Navigation";
@@ -26,6 +28,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={inter.className}>
+      <ThemeProvider  attribute="class">
         <AuthContextProvider>
           <FinanceContextProvider>
             <ToastContainer />
@@ -33,6 +36,7 @@ export default function RootLayout({ children }) {
             {children}
           </FinanceContextProvider>
         </AuthContextProvider>
+        </ThemeProvider >
       </body>      
     </html>
   );

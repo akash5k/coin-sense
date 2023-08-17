@@ -1,5 +1,6 @@
 import { AiFillCloseCircle } from "react-icons/ai";
 import { useState, useEffect } from "react";
+import { ThemeProvider } from "next-themes";
 
 function Modal({ show, onClose, children }) {
   const [modalVisible, setModalVisible] = useState(show);
@@ -16,6 +17,7 @@ function Modal({ show, onClose, children }) {
   };
 
   return (
+    <ThemeProvider defaultTheme="light">
     <div
       style={{
         opacity: modalVisible ? 1 : 0,
@@ -29,7 +31,7 @@ function Modal({ show, onClose, children }) {
       {modalVisible && (
         <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm">
         <div className="flex items-center justify-center h-screen">
-          <div className="modal_style max-w-3xl mx-auto  rounded-2xl overflow-hidden w-screen m-6">
+          <div className="max-w-3xl  text-white bg-[#1C1B1F] mx-auto  rounded-2xl overflow-hidden w-screen m-6">
             <div className="flex justify-end">
               <AiFillCloseCircle
                 onClick={closeModal}
@@ -42,6 +44,7 @@ function Modal({ show, onClose, children }) {
         </div>
       )}
     </div>
+    </ThemeProvider>
   );
 }
 

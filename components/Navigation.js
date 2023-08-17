@@ -1,11 +1,20 @@
 import React from "react";
 import { ImStatsBars } from "react-icons/im";
-import { useContext } from "react";
+import { useContext ,useState} from "react";
 
 import { authContext } from "../lib/store/auth-context";
-
+import { DarkModeSwitch } from "react-toggle-dark-mode";
+import { useTheme } from "next-themes";
 function Nav() {
   const { user, loading, logout } = useContext(authContext);
+
+  const [isDarkMode, setDarkMode] = useState(false);
+  const { theme, setTheme } = useTheme("light");
+
+  const toggleDarkMode = (checked) => {
+    setDarkMode(checked);
+    setTheme(isDarkMode ? "light" : "dark");
+  };
 
   return (
     <div className="container max-w-2xl px-4  mx-auto">
@@ -41,9 +50,18 @@ function Nav() {
         {/* right side*/}
         {user && !loading && (
           <nav className="flex gap-4 items-center">
-            <div>
+            <div className="flex flex-row gap-2">
+              <DarkModeSwitch
+                checked={isDarkMode}
+                onChange={toggleDarkMode}
+                size={25}
+              />
               <a href="#stats">
-                <ImStatsBars className="text-2xl text-gray-400 hover:text-white" />
+                <ImStatsBars
+                  className={`text-2xl ${
+                    isDarkMode ? "text-white" : "text-black"
+                  } hover:text-white`}
+                />
               </a>
             </div>
             <div>
