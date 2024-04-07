@@ -22,18 +22,29 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={inter.className}>
-      <ThemeProvider  attribute="class">
-      <DarkModeContext>
-        <AuthContextProvider>
-          <FinanceContextProvider>
-            <ToastContainer />
-            <Nav />
-            {children}
-          </FinanceContextProvider>
-        </AuthContextProvider>
-      </DarkModeContext>
-      </ThemeProvider >
-      </body>      
+        <ThemeProvider attribute="class">
+          <DarkModeContext>
+            <AuthContextProvider>
+              <FinanceContextProvider>
+                <ToastContainer
+                  position="top-center"
+                  autoClose={2000}
+                  hideProgressBar
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                  theme="dark"
+                />
+                <Nav />
+                {children}
+              </FinanceContextProvider>
+            </AuthContextProvider>
+          </DarkModeContext>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
