@@ -27,7 +27,7 @@ To get started with CoinSense, follow these steps:
 4. Open your web browser and navigate to `http://localhost:3000`.
 
 ## Deployment
-You can find the deployed version of CoinSense at [coin-sense-material.vercel.app](coin-sense-material.vercel.app)
+You can find the deployed version of CoinSense at [coin-sense-material.vercel.app](https://coin-sense-material.vercel.app/)
 
 TO TRY THE APP USE THESE CREDENTIALS:
 1. Email: test@gmail.com
