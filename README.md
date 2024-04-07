@@ -21,10 +21,11 @@ To get started with CoinSense, follow these steps:
 
 3. Start the development server:
     ```
-    npm start
+    npm run dev
     ```
 
 4. Open your web browser and navigate to `http://localhost:3000`.
+
 
 ## Deployment
 You can find the deployed version of CoinSense at [coin-sense-material.vercel.app](https://coin-sense-material.vercel.app/)
