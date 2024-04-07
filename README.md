@@ -1,4 +1,4 @@
-##Coin-Sense
+## Coin-Sense
 CoinsSence is a web app that lets you effortlessly manage your finances with CoinSense, a modern expense manager with a user-friendly interface.
 ## Features
 - Track your income and expenses
