@@ -24,7 +24,8 @@ function Nav() {
   }
 
   return (
-    <div className="container max-w-2xl pl-4  mx-auto">
+    <div className="container max-w-4xl pl-4 mx-auto">
+    {/* <div className="container max-w-2xl pl-4  mx-auto"> */}
       <div className="flex justify-between">
         {/* User Info*/}
         {user && !loading && (
