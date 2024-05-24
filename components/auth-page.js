@@ -7,7 +7,12 @@ import { auth } from "../lib/firebase";
 import { toast } from "react-toastify";
 
 function SignIn() {
-  const { googleLoginHandler, emailLoginHandler, emailSignupHandler , handleResetPassword} = useContext(authContext);
+  const {
+    googleLoginHandler,
+    emailLoginHandler,
+    emailSignupHandler,
+    handleResetPassword,
+  } = useContext(authContext);
   const [showSignUpModal, setShowSignUpModal] = useState(false);
 
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -24,10 +29,10 @@ function SignIn() {
     emailLoginHandler(auth, email, password);
   };
 
- const resetPasswordHandler = () => {
+  const resetPasswordHandler = () => {
     const email = emailRef.current.value;
-    handleResetPassword(email);  
-  }
+    handleResetPassword(email);
+  };
   //signup with email
   const signupEmailRef = useRef();
   const signupPasswordRef = useRef();
@@ -82,63 +87,44 @@ function SignIn() {
         </div>
         <div className="p-5 bg-[#1C1B1F] md:flex-1">
           <h3 className="my-4 text-2xl font-semibold text-gray-100">
-            Account Login
+            Login to your account
           </h3>
           <div className="flex flex-col space-y-5">
-            <div className="flex flex-col space-y-1">
-              <label
-                htmlFor="email"
-                className="text-sm font-semibold text-gray-200"
-              >
-                Email address
-              </label>
-              <input
-                type="email"
-                id="email"
-                ref={emailRef}
-                autoFocus
-                className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
-                required
-              />
-            </div>
-            <div className="flex flex-col space-y-1">
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="password"
-                  className="text-sm font-semibold text-gray-200"
-                >
-                  Password
-                </label>
-              </div>
-              <input
-                type="password"
-                id="password"
-                ref={passwordRef}
-                className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
-                required
-              />
-            </div>
-              <span
-                onClick={resetPasswordHandler}
-                className="text-sm rounded-sm underline text-red-400 hover:text-blue-600 duration-300 cursor-pointer"
-              >
-                Forgot password ?
-              </span>
+            <input
+              type="email"
+              id="email"
+              ref={emailRef}
+              autoFocus
+              placeholder="Email address"
+              className="px-4 py-2 transition duration-300 border border-gray-300 rounded-full focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+              required
+            />
+
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              ref={passwordRef}
+              className="px-4 py-2 transition duration-300 border border-gray-300 rounded-full focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+              required
+            />
+
+            <span
+              onClick={resetPasswordHandler}
+              className="text-sm rounded-sm underline text-red-400 hover:text-blue-600 duration-300 cursor-pointer"
+            >
+              Forgot password ?
+            </span>
 
             <div className="flex items-center space-x-2"></div>
             <div>
               <button
                 onClick={handleEmailLogin}
                 className="w-full px-4 py-2 text-lg font-semibold text-white transition-colors duration-300 bg-blue-500 rounded-md shadow hover:bg-blue-600 focus:outline-none focus:ring-blue-200 focus:ring-4"
-              >              
+              >
                 Log in
               </button>
-              <button
-                onClick={handleOpenSignUpModal}
-                className="w-full px-4 py-2 mt-2 text-lg font-semibold text-white transition-colors duration-300 bg-green-500 rounded-md shadow hover:bg-green-600 focus:outline-none focus:ring-green-200 focus:ring-4"
-              >
-                Sign up
-              </button>
+
               {/* Modal for sign-up */}
               {showSignUpModal && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
@@ -222,8 +208,8 @@ function SignIn() {
                 <span className="h-px bg-gray-400 w-14"></span>
               </span>
 
-              <div className="flex flex-col space-y-4 pb-4">
-                <div className="flex items-center justify-center cursor-pointer px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-100 rounded-md group hover:bg-gray-700 focus:outline-none">
+              <div className="flex flex-col space-y-4 pb-2 items-center">
+                <div className="flex w-full items-center justify-center cursor-pointer px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-100 rounded-md group hover:bg-gray-700 focus:outline-none">
                   <FcGoogle />
 
                   <span
@@ -233,6 +219,12 @@ function SignIn() {
                     Google
                   </span>
                 </div>
+              
+              <span 
+              onClick={handleOpenSignUpModal} 
+              className="text-sm hover:cursor-pointer hover:underline">
+                New here? <span className="text-green-500">Sign up</span>
+              </span>
               </div>
             </div>
           </div>
